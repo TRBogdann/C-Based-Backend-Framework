@@ -1,0 +1,7 @@
+POST /api/posts HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:89.0) Gecko/20100101 Firefox/89.0
+Content-Type: application/json
+Content-Length: 55
+
+{"title": "Sample Post", "body": "This is a test"}

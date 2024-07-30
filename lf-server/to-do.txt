@@ -1,0 +1,13 @@
+
+1.Alte formate(Text, Xml, Bin);
+2.Decriptare/Criptare HTTPS
+3.Criptare Date 
+4.DataBase Manager (Oracle,MySQL...)
+5.Template Framework
+6.Comenzi creare proiect
+7.MakeFile
+8.Error Handling
+9.Solutie setari
+10.Solutie rute
+11.Solutie CORS
+

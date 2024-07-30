@@ -1,0 +1,62 @@
+
+const char* getNextToken(Tokener tokener,int charLimit)
+{
+    static char* buffer = NULL;
+    static  char last = 0;
+    static char* savePoint;
+
+    //for charLimit<=0 the function is refreshed
+    if(charLimit<=0)
+    {
+        if(buffer!=NULL)
+            free(buffer);
+        buffer=NULL;
+        last = 0;
+        savePoint = NULL;
+        return NULL;
+    }
+
+    //deletes the previous buffer
+    if(buffer!=NULL)
+    {
+        free(buffer);
+        buffer = NULL;
+    }
+
+    //tokener can also be expired or invalid.
+    int type = testTokener(tokener);
+    switch (type) {
+
+        case LF_FILE_MODE:
+            buffer = (char*)malloc(charLimit+1);
+            fgets(buffer,charLimit,tokener.file.fileContent);
+            if(buffer[strlen(buffer)-1]=='\n')
+                buffer[strlen(buffer)-1] = 0;
+            break;
+        
+        case LF_TEXT_MODE:
+            buffer = (char*)malloc(charLimit+1);
+            //check whether strtok was used on the string 
+            char* target = last==0?tokener.text.txtContent:NULL;
+            char* token = strtok_r(target,"\n",&savePoint);
+           
+            if(token == NULL || strlen(token)>charLimit)
+                {
+                    free(buffer);
+                    buffer = NULL;
+                }
+            else
+                {
+                    last = 1;
+                    strcpy(buffer,token);
+                }
+        default:
+            break;
+    }   
+    if(buffer == NULL)
+       { 
+        last = 0;
+        savePoint = NULL;
+       }
+    return buffer;
+}

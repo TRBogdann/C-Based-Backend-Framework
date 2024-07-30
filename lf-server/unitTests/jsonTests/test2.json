@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "name":"idk",
+        "student":false,
+        "score":9.8
+    },
+    {
+        "id":2,
+        "name":"idk",
+        "student":false,
+        "score":9.8
+    },
+    {
+        "id":3,
+        "name":"idk",
+        "student":false,
+        "score":9.8
+    },
+    {
+        "id":4,
+        "name":"idk",
+        "student":false,
+        "score":9.8
+    },
+    {
+        "id":5,
+        "name":"idk",
+        "student":false,
+        "score":9.8
+    }
+]

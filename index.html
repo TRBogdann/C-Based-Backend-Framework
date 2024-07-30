@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<style>
+    body
+    {
+        background:url("cat.jpg");
+    }
+</style>
+<body>
+<button onclick="sendFormData()"> Click To Send </button>
+</body>
+
+<script>
+    const form = new FormData();
+    form.append("Name","Bogdan");
+    form.append("Message","Salut");
+    async function sendFormData()
+    {
+        console.log("Clicked");
+        const request = new XMLHttpRequest();
+        request.open("POST","http://localhost:2020");
+        request.onload = () =>
+        {
+            console.log(request.responseText);
+        }
+        request.send(form);  
+    }
+</script> 
+</html>
